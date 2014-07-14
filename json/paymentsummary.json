@@ -1,0 +1,48 @@
+[
+    {"id":1,
+        "payment_type_name":"type1",
+        "business_id":51,
+        "business_name":"BusinessName1",
+        "payment_type_id":101,
+        "amount":312,
+        "payment_received_at":"12-3-14",
+        "currency":"$"
+
+    },
+	
+	
+
+    {"id":2,
+        "payment_type_name":"type2",
+        "business_id":52,
+        "business_name":"BusinessName2",
+        "payment_type_id":432,
+        "amount":4234,
+        "payment_received_at":"4-2-14",
+        "currency":"dollar"
+    },
+					
+					
+    {"id":3,
+        "payment_type_name":"type3",
+        "business_id":53,
+        "business_name":"BusinessName3",
+        "payment_type_id":423,
+        "amount":656,
+        "payment_received_at":"8-6-12",
+        "currency":"euro"
+    },
+					
+					
+    {"id":4,
+        "payment_type_name":"type4",
+        "business_id":54,
+        "business_name":"BusinessName4",
+        "payment_type_id":134,
+        "amount":4232,
+        "payment_received_at":"2-7-13",
+        "currency":"rupees"
+    }
+					
+
+]

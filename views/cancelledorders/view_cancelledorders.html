@@ -1,0 +1,40 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.cancelled_orders" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+           </div>
+            <div class="modal-body">
+                <table class="table table-striped table-condensed">
+                    <tr><td><label>Id</label></td><td>{{cancelled_order.id}}</td></tr>
+                   <tr> <td><label>Name</label></td><td>{{cancelled_order.business_name}}</td></tr>
+                    <tr><td><label>Town Id</label></td><td>{{cancelled_order.town_id}}</td></tr>
+                    <tr><td><label>Town</label></td><td>{{cancelled_order.town_name}}</td></tr>
+                    <tr> <td><label>Delivery Location</label></td><td>{{cancelled_order.delivery_location}}</td></tr>
+                    <tr><td><label>User Id</label></td><td>{{cancelled_order.user_id}}</td></tr>
+                   <tr> <td><label>Coupon Id</label></td><td>{{cancelled_order.coupon_id}}</td></tr>
+                    <tr><td><label>First Name</label></td><td>{{cancelled_order.customer_first_name}}</td></tr>
+                   <tr> <td><label>Last Name</label></td><td>{{cancelled_order.customer_last_name}}</td></tr>
+                    <tr> <td><label>Email</label></td><td>{{cancelled_order.customer_email}}</td></tr>
+                    <tr> <td><label>Total Amount of Items</label></td><td>{{cancelled_order.items_total_amount}}</td></tr>
+                    <tr> <td><label>Discount Amount</label></td><td>{{cancelled_order.discount_amount}}</td></tr>
+                    <tr> <td><label>VAT amount</label></td><td>{{cancelled_order.vat_amount}}</td></tr>
+                    <tr> <td><label>Delivery Charge</label></td><td>{{cancelled_order.delivery_charge}}</td></tr>
+                    <tr> <td><label>Grand Total</label></td><td>{{cancelled_order.grand_total}}</td></tr>
+                    <tr> <td><label>Delivery Date</label></td><td>{{cancelled_order.delivery_date}}</td></tr>
+                    <tr> <td><label>Delivery Location</label></td><td>{{cancelled_order.delivery_location}}</td></tr>
+                    <tr> <td><label>Delivery Status</label></td><td><input type="checkbox" ng-model="cancelled_order.is_delivery" value="true" disabled></td></tr>
+                    <tr> <td><label>Phone</label></td><td>{{cancelled_order.phone}}</td></tr>
+                    <tr> <td><label>Delivery Address</label></td><td>{{cancelled_order.delivery_address}}</td></tr>
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

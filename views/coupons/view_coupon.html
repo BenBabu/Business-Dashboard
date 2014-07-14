@@ -1,0 +1,36 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.coupon" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">{{coupon.title}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tr><td><label>Id</label></td><td>{{coupon.id}}</td></tr>
+                    <tr><td><label>Business Id</label></td><td>{{coupon.business_id}}</td></tr>
+                    <tr><td><label>Code</label></td><td>{{coupon.code}}</td></tr>
+                    <tr><td><label>Start Date</label></td><td>{{coupon.start_date}}</td></tr>
+                    <tr><td><label>End Date</label></td><td>{{coupon.end_date}}</td></tr>
+                    <tr><td><label>Sales Count</label></td><td>{{coupon.sales_count}}</td></tr>
+                    <tr><td><label>Redeem Count</label></td><td>{{coupon.redeem_count}}</td></tr>
+                    <tr><td><label>Discount Amount</label></td><td>{{coupon.discount_amount}}</td></tr>
+                    <tr><td><label>Discount Percentage</label></td><td>{{coupon.discount_percent}}%</td></tr>
+                    <tr><td><label>Is Percentage?</label></td><td>{{coupon.code}}</td></tr>
+                    <tr><td><label>Expiry Date</label></td><td>{{coupon.expire_at}}</td></tr>
+                    <tr><td><label>Is Active?</label></td><td>{{coupon.is_active}}</td></tr>
+                    <tr><td><label>Created </label></td><td>{{coupon.created_at}}</td></tr>
+                    <tr><td><label>Updated </label></td><td>{{coupon.updated_at}}</td></tr>
+                    <tr><td><label>Minimum Item Quantity Required</label></td><td>{{coupon.min_item_quantity_required}}</td></tr>
+                </table>
+             </div>
+            <div class="modal-footer">
+                <a ui-sref="home.coupon.update_btn({id:coupon.id})"  type="button" class="btn btn-warning glyphicon glyphicon-pencil" data-dismiss="modal"></a>
+                <a ui-sref="home.coupon.delete_coupon" type="button" class="btn btn-danger glyphicon glyphicon-remove"></a>
+            </div>
+        </div>
+    </div>
+</div>

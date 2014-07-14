@@ -1,0 +1,38 @@
+[
+	{"id":1,
+	"business_id":"51",
+	"business_name":"Rule1",
+	"from":100,
+	"to":500,
+	"amount":400
+	},
+	
+	
+
+	{"id":2,
+	"business_id":"52",
+	"business_name":"Rule2",
+	"from":400,
+	"to":600,
+	"amount":200
+	},
+					
+					
+	{"id":3,
+	"business_id":"53",
+	"business_name":"Rule3",
+	"from":100,
+	"to":1000,
+	"amount":800
+	},
+					
+	{"id":4,
+	"business_id":"54",
+	"business_name":"Rule4",
+	"from":300,
+	"to":600,
+	"amount":300
+	}
+					
+					
+]

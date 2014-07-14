@@ -1,0 +1,28 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="myModalLabel">Update</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table  table-condensed">
+                    <tr>
+                        <td><label>Id</label></td><td><input class="form-control" type="text" ng-model="printer.id"  ></td></tr><tr>
+                    <td><label>Business Id</label></td><td><input class="form-control"type="text" ng-model="printer.business_id"  ></td></tr><tr>
+                    <td><label>Business Name</label></td><td><input class="form-control"type="text" ng-model="printer.business_name" ></td></tr><tr>
+                    <td><label>Printer Id</label></td><td><input class="form-control"type="text" ng-model="printer.printer_id" ></td></tr><tr>
+                    <td><label>UserName</label></td><td><input class="form-control"type="text" ng-model="printer.username" ></td></tr><tr>
+                    <td><label>Password</label></td><td><input class="form-control"type="text" ng-model="printer.password" ></td></tr><tr>
+                    <td><label>Active</label></td><td><input  type="checkbox" ng-model="printer.active" value="true" ></td></tr><tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-success" data-dismiss="modal">Save Changes</a>
+                <a ng-click="del(printer)" type="button" class="btn btn-danger glyphicon glyphicon-remove" data-dismiss="modal"></a>
+        </div>
+    </div>
+</div>

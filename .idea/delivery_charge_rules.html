@@ -1,0 +1,25 @@
+
+<br><h2>Coupons</h2><br><p><a ui-sref="home.coupon.create_coupon" type="button" class="btn btn-success">Add Coupon</a><div class="col-md-2 col-md-offset-10"><input class="form-control" type="text" ng-model="query" placeholder="search coupons"></div> <br></p><br>
+
+
+<p><div ng-repeat="coupon in coupons | filter:query">
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail" style="background-color:lightblue;">
+            <!--<img src="coupon.png" width="160px" height="120px">-->
+            <div class="caption">
+                <h3>{{coupon.title}}</h3>
+                <p>Discount: {{coupon.discount_percent}}%</p>
+                <p>Start Date:{{coupon.start_date}}</p><p> End Date:{{coupon.end_date}}</p>
+                <p><a  ui-sref=".view_coupon({id:coupon.id})"  class="btn btn-primary btn-sm" role="button">View</a> <a  ui-sref=".update_btn({id:coupon.id})" class="btn btn-warning btn-sm" role="button">Update</a> <a ui-sref=".delete_coupon({id:{{coupon.id}}})" ng-click="del(coupon)" class="btn btn-danger btn-sm" role="button">Delete</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</p>
+
+
+
+
+
+<div ui-view="test"></div>

@@ -1,0 +1,82 @@
+
+<div ng-controller="couponCtrl">
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(function() {
+            $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><h1>Coupons</h1><br>
+    <p> <a ui-sref="home.coupon.create_coupon" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Coupon</a>
+    <div class="col-md-2 col-md-offset-7">
+    <input class="form-control" type="text" ng-model="query" placeholder="search coupons"><br><br>
+</div><br>
+
+
+
+
+
+<div ui-view="test"></div>
+
+
+
+<table class="table" style="width: 800px">
+    <tr>
+        <th><a ng-click="sortField='id'" href="">#</a></th>
+        <th><a ng-click="sortField='name'" href="">Title</a></th>
+        <th><a ng-click="sortField='coupon.discount_percent'" href="">Discount<small>(%)</small></a></th>
+        <th><a ng-click="sortField='coupon.start_date'" href="">Start Date</a></th>
+        <th><a ng-click="sortField='coupon.end_date'" href="">End Date</a></th>
+
+
+    </tr>
+    <tr ng-repeat="coupon in coupons | filter:query | orderBy:sortField">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.title}}</td>
+        <td>{{coupon.discount_percent}}</td>
+        <td>{{coupon.start_date}}</td>
+        <td>{{coupon.end_date}}</td>
+        <td>
+            <a  ui-sref=".view_coupon({id:coupon.id})"  class="btn btn-default glyphicon glyphicon-eye-open"></a>
+            <a  ui-sref=".update_btn({id:coupon.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+            <a ng-click="del(coupon)" class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+        </td>
+
+    </tr>
+</table>
+
+</div>

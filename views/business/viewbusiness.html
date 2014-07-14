@@ -1,0 +1,42 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.business" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">{{business.name}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tr><td><label>Id</label></td><td>{{business.id}}</td></tr><tr>
+                    <td><label>Name</label></td><td>{{business.title}}</td>
+                    <td><label>Business Id</label></td><td>{{business.business_type_id}}</td></tr><tr>
+                    <td><label>User Id </label></td><td>{{business.user_id}}</td>
+                    <td><label>User Name </label></td><td>{{business.user_name}}</td></tr><tr>
+                    <td><label>Town Id </label></td><td>{{business.town_id}}</td>
+                    <td><label>Town Name </label></td><td>{{business.town_name}}</td></tr><tr>
+                    <td><label>Logo</label></td><td>{{business.logo}}</td></tr><tr>
+                    <td><label>Money Owned</label></td><td>{{business.money_owned}}</td>
+                    <td><label>Money Paid </label></td><td>{{business.money_paid}}</td></tr><tr>
+                    <td><label>Cancelled order count</label></td><td>{{business.cancelled_order_count}}</td>
+                    <td><label>Success order count</label></td><td>{{business.success_order_count}}</td></tr><tr>
+                    <td><label>Active</label></td><td><input  type="checkbox" ng-model="business.active" value="true" disabled></td></tr><tr>
+                    <td><label>Delivery waiting time</label></td><td>{{business.delivery_waiting_time}}</td>
+                    <td><label>Takeaway_waiting_time</label></td><td>{{business.takeaway_waiting_time}}</td></tr><tr>
+                    <td><label>Commission Fees</label></td><td>{{business.commission_fees}}</td>
+                    <td><label>Commission due date</label></td><td>{{business.commission_due_date}}</td></tr><tr>
+                    <td><label>Pickup</label></td><td><input  type="checkbox" ng-model="business.pickup" value="true" disabled></td>
+                    <td><label>Delivery</label></td><td><input  type="checkbox" ng-model="business.delivery" value="true" disabled></td></tr><tr>
+                    <td><label>Disable delivery charges</label></td><td><input  type="checkbox" ng-model="business.disable_delivery_charges" value="true"  disabled></td>
+                    <td><label>Minimum order amount</label></td><td>{{business.minimum_order_amount}}</td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.business.update_business_btn({id:business.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                <a ui-sref="home.business" ng-click="del(business)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+            </div>
+        </div>
+    </div>
+</div>

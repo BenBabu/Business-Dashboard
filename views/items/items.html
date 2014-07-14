@@ -1,0 +1,45 @@
+<div ng-controller="itemCtrl">
+
+    <br><h1>Items</h1><br>
+    <p> <a ui-sref="home.item.create_item" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Item</a>
+    <div class="col-md-2 col-md-offset-7">
+    <input class="form-control" type="text" ng-model="query" placeholder="search items"><br><br>
+</div><br>
+
+
+
+
+
+<div ui-view="test"></div>
+
+
+
+<table class="table" style="width: 800px">
+    <tr>
+        <th><a ng-click="sortField='id'" href="">#</a></th>
+        <th><a ng-click="sortField='name'" href="">Title</a></th>
+        <th><a ng-click="sortField='group_name'" href="">Group Name</a></th>
+        <th><a ng-click="sortField='category_name'" href="">Category Name</a></th>
+        <th><a ng-click="sortField='unit_price'" href="">Unit Price</a></th>
+
+
+    </tr>
+    <tr ng-repeat="item in items | filter:query | orderBy:sortField">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.group_name}}</td>
+        <td>{{item.category_name}}</td>
+        <td>{{item.unit_price}}</td>
+        <td>
+            <a  ui-sref=".view_item({id:item.id})"  class="btn btn-default glyphicon glyphicon-eye-open"></a>
+            <a  ui-sref=".update_btn({id:item.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+            <a ng-click="del(item)" class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+        </td>
+
+    </tr>
+</table>
+
+
+</div>
+

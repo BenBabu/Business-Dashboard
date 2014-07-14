@@ -1,0 +1,21 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.order" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4>You are about to cancel order {{order.business_name}}</h4>
+            </div>
+            <div class="modal-body">
+               <label>Reason to cancel the order</label><br>
+                <textarea style="width: 300px;height: 200px"></textarea>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.order" ng-click="cancel(order)" class="btn btn-danger glyphicon glyphicon-ok"></a>
+            </div>
+
+        </div>
+    </div>
+</div>

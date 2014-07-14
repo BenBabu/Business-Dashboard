@@ -1,0 +1,46 @@
+<div ng-controller="businessCtrl">
+
+
+<br><h2>Businesses</h2><br><p>
+    <a ui-sref=".create_business_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add business</a>
+    <div class="col-md-2 col-md-offset-7">
+    <input class="form-control" type="text" ng-model="query" placeholder="search for business">
+</div> <br></p><br>
+
+
+    <div class="col-md-10">
+        <table class="table" style="width: 800px">
+            <tr>
+                <th><a ng-click="sortField='id'" href="">#</a></th>
+                <th><a ng-click="sortField='name'" href="">Name</a></th>
+                <th><a ng-click="sortField='business_type_id'" href="">User name</a></th>
+                <th><a ng-click="sortField='business_type_name'" href="">Town name</a></th>
+                <th><a  href="">Logo</a></th>
+                <th><a href="">Active</a></th>
+
+
+
+            </tr>
+            <tr ng-repeat="business in businesses | filter:query | orderBy:sortField">
+                <td>{{business.id}}</td>
+                <td>{{business.title}}</td>
+                <td>{{business.user_name}}</td>
+                <td>{{business.town_name}}</td>
+                <td>{{business.logo}}</td>
+                <td><input  type="checkbox" ng-model="business.active" value="true" disabled></td>
+
+
+                <td>
+                    <a ui-sref=".view_business({id:business.id})" class="btn btn-default glyphicon glyphicon-eye-open" ></a>
+                    <a ui-sref=".update_business_btn({id:business.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                    <a  ng-click="del(business)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div ui-view="test_business"></div>
+
+</div>

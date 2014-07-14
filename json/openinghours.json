@@ -1,0 +1,35 @@
+[
+    {"id":1,
+        "business_id":"51",
+        "business_name":"Business1",
+        "from":"9.00am",
+        "to":"10.00pm",
+        "day":"Monday-Friday"
+    },
+	
+	
+
+    {"id":2,
+        "business_id":"52",
+        "business_name":"Business2",
+        "from":"10.00am",
+        "to":"8.00pm",
+        "day":"Monday-Saturday"	},
+					
+					
+    {"id":3,
+        "business_id":"53",
+        "business_name":"Business3",
+        "from":"6.00pm",
+        "to":"11.00pm",
+        "day":"Sunday-Saturday"	},
+					
+    {"id":4,
+        "business_id":"54",
+        "business_name":"Business4",
+        "from":"12.00pm",
+        "to":"9.00pm",
+        "day":"Monday-Thursday"	}
+					
+
+]

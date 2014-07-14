@@ -1,0 +1,41 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.paymentsummary" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                <h2 class="modal-title" id="myModalLabel">Create</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-condensed">
+                    <tr>
+                        <td><label>Id :</label></td><td><input type="text" ng-model="payment.id"  ></td></tr><tr>
+                    <td><label>Payment Id</label></td><td><input type="text" ng-model="payment.payment_type_id" ></td></tr>
+                    <td><label>Payment Name</label></td><td><input type="text" ng-model="payment.payment_type_name" ></td></tr><tr>
+                    <td><label>Business Id</label></td><td><input type="text" ng-model="payment.business_id" ></td></tr>
+                    <td><label>Business Name</label></td><td><input type="text" ng-model="payment.business_name" ></td></tr>
+                    <td><label>Amount</label></td><td><input type="text" ng-model="payment.amount" ></td></tr>
+                    <td><label>Payment Received at</label></td><td><input type="text" class="form-control datepicker" ng-model="payment.payment_received_at"></td></tr>
+                    <td><label>Currency Type</label></td><td><select ng-model="payment.currency">
+                    <option value="dollar">dollars</option>
+                    <option value="rupees">rupees</option>
+                    <option value="euro">euros</option>
+                </select></td>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.paymentsummary.view_paymentsummary({id:payment.id})"  type="button" class="btn btn-success" data-dismiss="modal">Save Changes</a>
+                <a ui-sref="home.paymentsummary" ng-click="del(payment)"  type="button" class="btn btn-danger glyphicon glyphicon-remove" data-dismiss="modal"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+    });
+</script>

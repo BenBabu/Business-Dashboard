@@ -1,0 +1,39 @@
+<div ng-controller="printerCtrl">
+
+
+<br><h2>Printers</h2><br><p><a ui-sref=".create_printer_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add printer</a><div class="col-md-2 col-md-offset-7"><input class="form-control" type="text" ng-model="query" placeholder="search for printers"></div> <br></p><br>
+
+
+
+<table class="table" style="width: 800px">
+    <tr>
+        <th><a ng-click="sortField='id'" href="">#</a></th>
+        <th><a ng-click="sortField='business_id'" href="">Business Id</a></th>
+        <th><a ng-click="sortField='business_name'" href="">Business Name</a></th>
+        <th><a ng-click="sortField='printer_id' " href="">Printer Id</a></th>
+        <th><a ng-click="sortField='username' " href="">Username</a></th>
+        <th><a ng-click="sortField='password' " href="">Password</a></th>
+        <th><a  href="">Active</a></th>
+
+    </tr>
+    <tr ng-repeat="printer in printers | filter:query | orderBy:sortField">
+        <td>{{printer.id}}</td>
+        <td>{{printer.business_id}}</td>
+        <td>{{printer.business_name}}</td>
+        <td>{{printer.printer_id}}</td>
+        <td>{{printer.username}}</td>
+        <td>{{printer.password}}</td>
+        <td><input  type="checkbox" ng-model="printer.active" value="true" disabled></td>
+        <td>
+
+            <a ui-sref=".update_printer_btn({id:printer.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+            <a ui-sref=".remove_printer" ng-click="del(printer)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+        </td>
+
+    </tr>
+</table>
+
+        <div ui-view="test_printer"></div>
+
+</div>

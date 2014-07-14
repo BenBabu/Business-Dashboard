@@ -1,0 +1,26 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="myModalLabel">Update {{hour.business_name}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-active">
+                    <tr>
+                        <td><label>Id :</label></td><td><input type="text" ng-model="hour.id"  value="{{hour.id}}"></td></tr><tr>
+                    <td><label>Business Id :</label></td><td><input type="text" ng-model="hour.business_id"  value="{{hour.business_id}}"></td></tr><tr>
+                    <td><label>Business Name :</label></td><td><input type="text" ng-model="hour.business_name"  value="{{hour.business_name}}"></td></tr><tr>
+                    <td><label>Time:</label></td><td><h4><small>From :</small></h4><input type="text" ng-model="hour.from"  value="{{hour.from}}"></td><td><h4><small>To :</small></h4><input type="text" ng-model="hour.to"  value="{{hour.to}}"></td></tr><tr>
+                    <td><label>Working Day:</label></td><td><input type="text" ng-model="hour.day"  value="{{hour.day}}"></td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a  type="button" class="btn btn-default" data-dismiss="modal">Save Changes</a>
+                <a ng-click="del(hour)" type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"></a>
+            </div>
+        </div>
+    </div>
+</div>

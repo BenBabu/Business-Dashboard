@@ -1,0 +1,29 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.printer" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                <h2 class="modal-title" id="myModalLabel">Create</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table  table-condensed">
+                    <tr>
+                        <td><label>Id</label></td><td><input class="form-control" type="text" ng-model="printer.id"  ></td></tr><tr>
+                    <td><label>Business Id</label></td><td><input class="form-control"type="text" ng-model="printer.business_id"  ></td></tr><tr>
+                    <td><label>Business Name</label></td><td><input class="form-control"type="text" ng-model="printer.business_name" ></td></tr><tr>
+                    <td><label>Printer Id</label></td><td><input class="form-control"type="text" ng-model="printer.printer_id" ></td></tr><tr>
+                    <td><label>UserName</label></td><td><input class="form-control"type="text" ng-model="printer.username" ></td></tr><tr>
+                    <td><label>Password</label></td><td><input class="form-control"type="text" ng-model="printer.password" ></td></tr><tr>
+                    <td><label>Active</label></td><td><input  type="checkbox" ng-model="printer.active" value="true" ></td></tr><tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ng-click="add(printer)" type="button" class="btn btn-success" data-dismiss="modal">Create</a>
+            </div>
+        </div>
+    </div>
+</div>

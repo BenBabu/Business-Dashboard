@@ -1,0 +1,26 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="myModalLabel">Create Group</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tr>
+                        <td><label>Id :</label></td><td><input class="form-control" type="text" ng-model="group.id"  ></td></tr><tr>
+                    <td><label>Name :</label></td><td><input class="form-control" type="text" ng-model="group.name"  ></td></tr><tr>
+                    <td><label>Business Id :</label></td><td><input class="form-control" type="text" ng-model="group.business_id" ></td></tr><tr>
+                    <td><label>Business Name :</label></td><td><input class="form-control" type="text" ng-model="group.business_name" ></td></tr><tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+
+                <a ui-sref="home.group" ng-click="add(group)" type="button" data-dismiss="modal" class="btn btn-success">Add</a>
+            </div>
+        </div>
+    </div>
+</div>

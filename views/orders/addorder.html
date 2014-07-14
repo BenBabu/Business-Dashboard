@@ -1,0 +1,47 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.order" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3>New order</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-condensed">
+                    <tr><td><label>Id</label></td><td><input type="text" class="form-control" ng-model="order.id"></td>
+                     <td><label>Name</label></td><td><input type="text" class="form-control" ng-model="order.business_name"></td></tr>
+                    <tr><td><label>Town Id</label></td><td><input type="text" class="form-control" ng-model="order.town_id"></td>
+                    <td><label>Town</label></td><td><input type="text" class="form-control" ng-model="order.town_name"></td></tr>
+                    <tr> <td><label>Delivery Location</label></td><td><input type="text" class="form-control" ng-model="order.delivery_location"></td>
+                    <td><label>User Id</label></td><td><input type="text" class="form-control" ng-model="order.user_id"></td></tr>
+                    <tr> <td><label>Coupon Id</label></td><td><input type="text" class="form-control" ng-model="order.order_id"></td>
+                    <td><label>First Name</label></td><td><input type="text" class="form-control" ng-model="order.customer_first_name"></td></tr>
+                    <tr> <td><label>Last Name</label></td><td><input type="text" class="form-control" ng-model="order.customer_last_name"></td>
+                     <td><label>Email</label></td><td><input type="text" class="form-control" ng-model="order.customer_email"></td></tr>
+                    <tr> <td><label>Total Amount of Items</label></td><td><input type="text" class="form-control" ng-model="order.items_total_amount"></td>
+                     <td><label>Discount Amount</label></td><td><input type="text" class="form-control" ng-model="order.discount_amount"></td></tr>
+                    <tr> <td><label>VAT amount</label></td><td><input type="text" class="form-control" ng-model="order.vat_amount"></td>
+                     <td><label>Delivery Charge</label></td><td><input type="text" class="form-control" ng-model="order.delivery_charge"></td></tr>
+                    <tr> <td><label>Grand Total</label></td><td><input type="text" class="form-control" ng-model="order.grand_total"></td>
+                    <td><label>Delivery Date</label></td><td><input type="text" class="form-control datepicker" ng-model="order.delivery_date"></td></tr>
+                    <tr> <td><label>Delivery Location</label></td><td><input type="text" class="form-control" ng-model="order.delivery_location"></td>
+                    <td><label>Delivery Status</label></td><td><input type="checkbox" ng-model="order.is_delivery" value="true"></td></tr>
+                    <tr> <td><label>Phone</label></td><td><input type="text" class="form-control" ng-model="order.phone"></td>
+                    <td><label>Delivery Address</label></td><td><input type="text" class="form-control" ng-model="order.delivery_address"></td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.order.view_order" ng-click="add(order)"  type="button" class="btn btn-primary">Create</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+    });
+</script>

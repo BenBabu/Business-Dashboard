@@ -1,0 +1,38 @@
+<div ng-controller="openinghoursCtrl">
+
+
+<br><h2>Opening Hours</h2><br><p><a ui-sref=".create_openinghours_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add opening hours</a></a><div class="col-md-2 col-md-offset-7"><input class="form-control" type="text" ng-model="query" placeholder="search for printer"></div> <br></p><br>
+
+
+
+<table class="table" style="width: 800px">
+    <tr>
+        <th><a ng-click="sortField='id'" href="">#</a></th>
+        <th><a ng-click="sortField='business_id'" href="">Business Id</a></th>
+        <th><a ng-click="sortField='business_name'" href="">Business Name</a></th>
+        <th><a ng-click="sortField='day' " href="">Days</a></th>
+        <th><a ng-click="sortField='from' " href="">From</a></th>
+        <th><a ng-click="sortField='to' " href="">To</a></th>
+
+
+    </tr>
+    <tr ng-repeat="hour in openinghours | filter:query | orderBy:sortField">
+        <td>{{hour.id}}</td>
+        <td>{{hour.business_id}}</td>
+        <td>{{hour.business_name}}</td>
+        <td>{{hour.day}}</td>
+        <td>{{hour.from}}</td>
+        <td>{{hour.to}}</td>
+        
+        <td>
+            <a ui-sref=".update_openinghours_btn({id:hour.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+            <a  ng-click="del(hour)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+        </td>
+
+    </tr>
+</table>
+
+        <div ui-view="test_openinghours"></div>
+
+</div>

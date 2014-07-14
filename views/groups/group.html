@@ -1,0 +1,37 @@
+
+<div ng-controller="groupCtrl">
+
+<br><h2>Groups</h2><br><p>
+    <a ui-sref=".create_group_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Group</a>
+<div class="col-md-2 col-md-offset-7">
+    <input class="form-control" type="text" ng-model="query" placeholder="search for group">
+</div> <br></p><br>
+
+<div class="col-md-10">
+    <table class="table table-hovered" style="width: 800px">
+        <tr>
+            <th><a ng-click="sortField='id'" href="">#</a></th>
+            <th><a ng-click="sortField='name'" href="">Name</a></th>
+            <th><a ng-click="sortField='business_id'" href="">Business Id</a></th>
+            <th><a ng-click="sortField='business_name'" href="">Business Name</a></th>
+
+
+        </tr>
+        <tr ng-repeat="group in groups | filter:query | orderBy:sortField">
+            <td>{{group.id}}</td>
+            <td>{{group.name}}</td>
+            <td>{{group.business_id}}</td>
+            <td>{{group.business_name}}</td>
+
+            <td>
+                <a ui-sref=".update_group_btn({id:group.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                <a  ng-click="del(group)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+            </td>
+
+        </tr>
+    </table>
+</div>
+        <div ui-view="test"></div>
+
+</div>

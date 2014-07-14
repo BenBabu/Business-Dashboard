@@ -1,0 +1,27 @@
+[
+	{"id":1,
+	"name":"Group1",
+	"business_id":51,
+	"business_name":"Business Group1"},
+	
+	
+
+	{"id":2,
+	"name":"Group2",
+	"business_id":52,
+	"business_name":"Business Group2"},
+					
+					
+	{"id":3,
+	"name":"Group3",
+	"business_id":53,
+	"business_name":"Business Group3"},
+					
+					
+	{"id":4,
+	"name":"Group4",
+	"business_id":54,
+	"business_name":"Business Group4"}
+					
+					
+]

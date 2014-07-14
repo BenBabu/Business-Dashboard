@@ -1,0 +1,26 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="myModalLabel">Update {{group.name}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tr>
+                        <td><label>Id :</label></td><td><input class="form-control" type="text" ng-model="group.id"  value="{{group.id}}"></td></tr><tr>
+                    <td><label>Name :</label></td><td><input class="form-control" type="text" ng-model="group.name"  value="{{group.name}}"></td></tr><tr>
+                    <td><label>Business Id :</label></td><td><input class="form-control" type="text" ng-model="group.business_id"  value="{{group.business_type_id}}"></td></tr><tr>
+                    <td><label>Business Name :</label></td><td><input class="form-control" type="text" ng-model="group.business_name"  value="{{group.business_type_name}}"></td></tr><tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a  type="button" class="btn btn-default" data-dismiss="modal">Save Changes</a>
+                <a ui-sref="home.group" ng-click="del(group)" type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"></a>
+            </div>
+        </div>
+    </div>
+</div>

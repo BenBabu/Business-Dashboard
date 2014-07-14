@@ -1,0 +1,67 @@
+
+<div ng-controller="orderCtrl">
+
+    <br><h1>Orders</h1><br>
+   <p><a ui-sref="home.order.create_order_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add order</a><br>
+
+    <div class="col-md-2 col-md-offset-0">
+        <input type="text" class="form-control datepicker" placeholder="From">
+    </div>
+    <div class="col-md-2">
+        <input type="text" class="form-control datepicker" placeholder="To">
+    </div>
+    <div class="col-md-1">
+        <a class="btn btn-primary">go</a>
+    </div>
+
+    <script>
+        $(function() {
+            $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+        });
+    </script>
+
+    <div class="col-md-2 col-md-offset-7">
+        <input class="form-control" type="text" ng-model="query" placeholder="search orders"><br><br>
+    </div><br>
+
+
+
+
+
+    <div ui-view="test_order"></div>
+
+
+
+    <table class="table" style="width: 800px">
+        <tr>
+            <th><a ng-click="sortField='id'" href="">#</a></th>
+            <th><a ng-click="sortField='business_name'" href="">Name</a></th>
+            <th><a ng-click="sortField='grand_total'" href="">Grand Total</a></th>
+            <th><a ng-click="sortField='location'" href="">Location</a></th>
+            <th><a ng-click="sortField='name'" href="">Customer Name</a></th>
+            <th><a href="">Delivered</a></th>
+
+
+        </tr>
+        <tr ng-repeat="order in orders | filter:query | orderBy:sortField">
+            <td>{{order.id}}</td>
+            <td>{{order.business_name}}</td>
+            <td>{{order.grand_total}}</td>
+            <td>{{order.delivery_location}},{{order.town_name}}</td>
+            <td>Mr.{{order.customer_first_name}} {{order.customer_last_name}}</td>
+            <td><input  type="checkbox" ng-model="order.is_delivery" value="true" disabled></td>
+            <td>
+                <a  ui-sref=".view_order({id:order.id})"  class="btn btn-default glyphicon glyphicon-eye-open"></a>
+                <a  ui-sref=".cancel_order({id:order.id})"  class="btn btn-danger">Cancel</a>
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    $(function() {
+        $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+    });
+</script>

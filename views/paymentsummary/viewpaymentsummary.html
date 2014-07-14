@@ -1,0 +1,32 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.paymentsummary" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">{{payment.name}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tr>
+                        <td><label>Id :</label></td><td>{{payment.id}}</td></tr><tr>
+                    <td><label>Payment Id</label></td><td>{{payment.payment_type_id}}</td></tr><tr>
+                    <td><label>Payment Type</label></td><td>{{payment.payment_type_name}}</td></tr><tr>
+                    <td><label>Business Id</label></td><td>{{payment.business_id}}</td></tr><tr>
+                    <td><label>Business Name</label></td><td>{{payment.business_name}}</td></tr><tr>
+                    <td><label>Amount</label></td><td>{{payment.amount}}</td></tr><tr>
+                    <td><label>Payment Received At</label></td><td>{{payment.payment_received_at}}</td></tr><tr>
+                    <td><label>Currency</label></td><td>{{payment.currency}}</td></tr><tr>
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.paymentsummary.update_category_btn({id:payment.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                <a ui-sref="home.paymentsummary" ng-click="del(payment)" class="btn btn-danger glyphicon glyphicon-remove" ></a>
+            </div>
+        </div>
+    </div>
+</div>

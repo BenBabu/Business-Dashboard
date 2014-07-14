@@ -1,0 +1,42 @@
+[
+	{"id":1,
+	"business_id":"51",
+	"business_name":"BusinessName1",
+	"printer_id":100,
+	"username":"username1",
+	"password":"password1",
+        "active":true
+	},
+	
+	
+
+	{"id":2,
+	"business_id":"52",
+	"business_name":"BusinessName2",
+	"printer_id":400,
+	"username":"username2",
+	"password":"password2",
+        "active":true
+	},
+					
+					
+	{"id":3,
+	"business_id":"53",
+	"business_name":"BusinessName3",
+	"printer_id":200,
+	"username":"username3",
+	"password":"password3",
+        "active":false
+	},
+					
+	{"id":4,
+	"business_id":"54",
+	"business_name":"BusinessName4",
+	"printer_id":300,
+	"username":"username4",
+	"password":"password4",
+        "active":true
+	}
+					
+					
+]

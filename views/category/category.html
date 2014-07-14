@@ -1,0 +1,40 @@
+<div ng-controller="categoryCtrl">
+
+
+<br><h2>Categories</h2><br><p>
+    <a ui-sref=".create_category_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Category</a>
+    <div class="col-md-2 col-md-offset-7">
+    <input class="form-control" type="text" ng-model="query" placeholder="search for category">
+</div> <br></p><br>
+
+
+    <div class="col-md-10">
+        <table class="table" style="width: 800px">
+            <tr>
+                <th><a ng-click="sortField='id'" href="">#</a></th>
+                <th><a ng-click="sortField='name'" href="">Name</a></th>
+                <th><a ng-click="sortField='business_type_id'" href="">Business Id</a></th>
+                <th><a ng-click="sortField='business_type_name'" href="">Business Name</a></th>
+        
+
+            </tr>
+            <tr ng-repeat="category in categories | filter:query | orderBy:sortField">
+                <td>{{category.id}}</td>
+                <td>{{category.name}}</td>
+                <td>{{category.business_type_id}}</td>
+                <td>{{category.business_type_name}}</td>
+
+                <td>
+                    <a ui-sref=".view_category({id:category.id})" class="btn btn-default glyphicon glyphicon-eye-open" ></a>
+                    <a ui-sref=".update_category_btn({id:category.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                    <a  ng-click="del(category)" class="btn btn-danger glyphicon glyphicon-remove" ></a>
+
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div ui-view="test_category"></div>
+
+</div>

@@ -1,0 +1,27 @@
+[
+	{"id":1,
+	"name":"Non-veg",
+	"business_type_id":51,
+	"business_type_name":"non-veg"},
+	
+	
+
+	{"id":2,
+	"name":"Veg",
+	"business_type_id":52,
+	"business_type_name":"veg"},
+					
+					
+	{"id":3,
+	"name":"Juice",
+	"business_type_id":53,
+	"business_type_name":"juice"},
+					
+					
+	{"id":4,
+	"name":"Snacks",
+	"business_type_id":54,
+	"business_type_name":"snacks"}
+					
+					
+]

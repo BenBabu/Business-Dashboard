@@ -1,0 +1,16 @@
+[
+	{"id":1,
+	"business_id":51,
+	"business_name":"settings1",
+	"email_notification_on_each_sale":true,
+    "paypal_api_username":"user",
+    "paypal_api_password":"password",
+    "paypal_api_signature":"signature"
+	}
+	
+	
+
+	
+					
+					
+]

@@ -1,0 +1,43 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.item" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">New Item</h2>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <table class="table table-striped">
+                        <tr><td><label>Item Id</label><input type="text" class="form-control" ng-model="item.id">
+                            <td><label>Business Id</label><input type="text" class="form-control" ng-model="item.business_type_id"></td></tr>
+                        <tr><td><label>Title</label><input type="text" class="form-control" ng-model="item.title">
+                            <td><label>Item Description</label><input type="text" class="form-control" ng-model="item.item_description"></td></tr>
+                        <tr><td><label>Business Name</label><input type="text" class="form-control" ng-model="item.business_type_name">
+                            <td><label>Item Code</label><input type="text" class="form-control" ng-model="item.item_code"></td></tr>
+                        <tr><td><label>Category Id</label><input type="text"  class="form-control" ng-model="item.category_id">
+                            <td><label>Category Name</label><input type="text" class="form-control" ng-model="item.category_name"></td></tr>
+                        <tr><td><label>Item Type Id</label><input type="text" class="form-control" ng-model="item.item_type_id">
+                            <td><label>Item Type Name</label><input type="text" class="form-control" ng-model="item.item_type_name"></td></tr>
+                        <tr><td><label>Discount Amount</label><input type="text" class="form-control" ng-model="item.discount_amount" placeholder="$">
+                            <td><label>Discount Percent</label><input type="text" class="form-control" ng-model="item.discount_percent" placeholder="%"></td></tr>
+                        <tr><td><label>Unit Price</label><input type="text" class="form-control" ng-model="item.unit_price" placeholder="$">
+                            <td><label>Unit VAT amount</label><input type="text" class="form-control" ng-model="item.unit_vat_amount" placeholder="$"></td></tr>
+
+                        <tr><td><label>Successful sales count</label><input type="text" class="form-control" ng-model="item.successfull_sales_count">
+                            <td><label>Cancelled sales count</label><input type="text" class="form-control" ng-model="item.cancelled_order_count"></td></tr>
+                        <tr><td><label>Out of stock</label><input type="checkbox"  ng-model="item.outofstock" value="true">
+                            <td><label>Spicy</label><input type="number" min="0" max="5"></td></tr>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <a ui-sref="home.item.view_item" ng-click="add(item)" type="button" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+
+    </div>
+</div>

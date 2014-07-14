@@ -1,0 +1,27 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.category" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">{{category.name}}</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tr>
+                        <td><label>Id :</label></td><td>{{category.id}}</td></tr><tr>
+                    <td><label>Name:</label></td><td>{{category.name}}</td></tr><tr>
+                    <td><label>Business Id:</label></td><td>{{category.business_type_id}}</td></tr><tr>
+                    <td><label>Business Name</label></td><td>{{category.business_type_name}}</td></tr><tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a ui-sref="home.category.update_category_btn({id:category.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+                <a ui-sref="home.category" ng-click="del(category)" class="btn btn-danger glyphicon glyphicon-remove"></a>
+            </div>
+        </div>
+    </div>
+</div>

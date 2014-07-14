@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html ng-app="dashboard">
+<head>
+    <script> src="js/main.js"</script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script> src="js/jquery-2.1.1.min.js"</script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="utf-8">
+
+    <title>
+        Business DashBoard
+    </title>
+
+
+</head>
+<style>
+    body {
+        background: url(image/background.jpg);
+        background-size: 1920px 1080px;
+        background-repeat: no-repeat;
+
+
+    }
+</style>
+
+<body style="background-color: ghostwhite">
+
+<script>
+    var dashboard=angular.module('dashboard',['ui.router']);
+    dashboard.config(function($stateProvider,$urlRouterProvider){
+
+
+        $urlRouterProvider.otherwise('/index/sales');
+        $stateProvider
+
+
+                .state('#',{
+                    url:'/',
+                    views:{
+                        'main':{templateUrl:'views/login.html'}
+                    }
+                })
+                .state('home',{
+                    url:'/index',
+                    views:{
+                        'main':{templateUrl:'views/home.html'}
+                    }
+                })
+                .state('home.sale',{
+                    url:'/sales',
+                    views:{
+                        'body':{templateUrl:'views/sales/sales.html',controller:function($scope,$http){
+                            $http.get('json/sales.json').success(function(data){
+                                $scope.sales=data;
+                                console.log(data);
+                            })
+                        }}
+                    }
+                })
+
+                .state('home.sale.view_sale',{
+                    url:'/:id',
+                    views:{
+                        'test':{templateUrl:'views/sales/view_sale.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.sales,$stateParams.id);
+                            $scope.sale=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.cancelled_orders',{
+                    url:'/cancelled_orders',
+                    views:{
+                        'body':{templateUrl:'views/cancelledorders/cancelledorders.html',controller:function($scope,$http){
+                            $http.get('json/sales.json').success(function(data){
+                                $scope.cancelled_orders=data;
+                                console.log(data);
+                            })
+                        }}
+                    }
+                })
+
+                .state('home.cancelled_orders.view_cancelled_order',{
+                    url:'/:id',
+                    views:{
+                        'test_cancel':{templateUrl:'views/cancelledorders/view_cancelledorders.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.cancelled_orders,$stateParams.id);
+                            $scope.cancelled_order=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+                .state('home.order',{
+                    url:'/orders',
+                    views:{
+                        'body':{templateUrl:'views/orders/order.html',controller:function($scope,$http){
+                            $http.get('json/sales.json').success(function(data){
+                                console.log(data);
+                                $scope.orders=data;
+
+                            })
+                        }}
+                    }
+
+                })
+                .state('home.order.create_order_btn',{
+                    url:'/create',
+                    views:{
+                        'test_order':{templateUrl:'views/orders/addorder.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            }}
+
+                    }
+                })
+                .state('home.order.view_order',{
+                    url:'/view/:id',
+                    views:{
+                        'test_order':{templateUrl:'views/orders/vieworder.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.orders,$stateParams.id);
+                            $scope.order=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.order.update_order_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_order':{templateUrl:'views/order/updateorder.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.orders,$stateParams.id);
+                            $scope.order=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.order.cancel_order',{
+                    url:'/cancel/:id',
+                    views:{
+                        'test_order':{templateUrl:'views/orders/cancelorder.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.orders,$stateParams.id);
+                            $scope.order=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.coupon',{
+                    url:'/coupons',
+                    views:{
+                        'body':{templateUrl:'views/coupons/coupon.html',controller:function($scope,$http){
+                            $http.get('json/coupon.json').success(function(data){
+                                $scope.coupons=data;
+
+                            })
+                        }}
+                    }
+                })
+                .state('home.coupon.create_coupon',{
+                    url:'/create',
+                    views:{
+                        'test':{templateUrl:'views/coupons/create_coupon.html',controller:function($scope){
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.coupon.view_coupon',{
+                    url:'/:id',
+                    views:{
+                        'test':{templateUrl:'views/coupons/view_coupon.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.coupons,$stateParams.id);
+                            $scope.coupon=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+                .state('home.coupon.update_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test':{templateUrl:'views/coupons/update_coupon.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.coupons,$stateParams.id);
+                            $scope.coupon=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.item',{
+                    url:'/items',
+                    views:{
+                        'body':{templateUrl:'views/items/items.html',controller:function($scope,$http){
+                            $http.get('json/items.json').success(function(data){
+                                $scope.items=data;
+                                console.log(data);
+                            })
+                        }}
+                    }
+                })
+                .state('home.item.create_item',{
+                    url:'/create',
+                    views:{
+                        'test':{templateUrl:'views/items/create_item.html',controller:function($scope){
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.item.view_item',{
+                    url:'/:id',
+                    views:{
+                        'test':{templateUrl:'views/items/view_item.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.items,$stateParams.id);
+                            $scope.item=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+                .state('home.item.update_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test':{templateUrl:'views/items/update_item.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.items,$stateParams.id);
+                            $scope.item=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+
+
+                .state('home.delivery_rules',{
+                    url:'/delivery_rules',
+                    views:{
+                        'body':{templateUrl:'views/deliveryCharges/deliveryRules.html',
+                            controller:function($scope,$http,$stateParams){
+                                $http.get('json/deliveryCharges.json').success(function(data){
+                                    $scope.deliveryCharges=data;
+                                })
+                            }
+                        }}})
+                .state('home.delivery_rules.create_rule_btn',{
+                    url:'/create',
+                    views:{
+                        'test_rule':{templateUrl:'views/deliveryCharges/addRule.html',controller:function($scope,$stateParams){
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.delivery_rules.view_rule',{
+                    url:'/:id',
+                    views:{
+                        'test_rule':{templateUrl:'views/deliveryCharges/viewRule.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.deliveryCharges,$stateParams.id);
+                            $scope.charges=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.delivery_rules.update_rule_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_rule':{templateUrl:'views/deliveryCharges/updateRule.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.deliveryCharges,$stateParams.id);
+                            $scope.charges=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+
+
+
+
+                .state('home.category',{
+                    url:'/category',
+                    views:{
+                        'body':{templateUrl:'views/category/category.html',
+                            controller:function($scope,$http,$stateParams){
+                            $http.get('json/category.json').success(function(data){
+                                $scope.categories=data;
+                            })
+                        }
+                        }
+                    }})
+
+                .state('home.category.create_category_btn',{
+                    url:'/create',
+                    views:{
+                        'test_category':{templateUrl:'views/category/addCategory.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            }}
+
+                    }
+                })
+                .state('home.category.view_category',{
+                    url:'/view/:id',
+                    views:{
+                        'test_category':{templateUrl:'views/category/viewCategory.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.categories,$stateParams.id);
+                            $scope.category=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.category.update_category_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_category':{templateUrl:'views/category/updateCategory.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.categories,$stateParams.id);
+                            $scope.category=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.business',{
+                    url:'/business',
+                    views:{
+                        'body':{templateUrl:'views/business/business.html',
+                            controller:function($scope,$http,$stateParams){
+                                //alert("Hi");
+                                $http.get('json/business.json').success(function(data){
+
+                                    console.log(data);
+                                   $scope.businesses=data;
+                           })
+                            }
+                        }
+                    }})
+
+                .state('home.business.create_business_btn',{
+                    url:'/create',
+                    views:{
+                        'test_business':{templateUrl:'views/business/addbusiness.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            }}
+
+                    }
+                })
+                .state('home.business.view_business',{
+                    url:'/view/:id',
+                    views:{
+                        'test_business':{templateUrl:'views/business/viewbusiness.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.businesses,$stateParams.id);
+                            $scope.business=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.business.update_business_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_business':{templateUrl:'views/business/updatebusiness.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.businesses,$stateParams.id);
+                            $scope.business=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.paymentsummary',{
+                    url:'/paymentsummary',
+                    views:{
+                        'body':{templateUrl:'views/paymentsummary/paymentsummary.html',
+                            controller:function($scope,$http,$stateParams){
+                                $http.get('json/paymentsummary.json').success(function(data){
+                                    $scope.payments=data;
+                                })
+                            }
+                        }
+                    }})
+
+                .state('home.paymentsummary.create_paymentsummary_btn',{
+                    url:'/create',
+                    views:{
+                        'test_paymentsummary':{templateUrl:'views/paymentsummary/addpaymentsummary.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            }}
+
+                    }
+                })
+                .state('home.paymentsummary.view_paymentsummary',{
+                    url:'/view/:id',
+                    views:{
+                        'test_paymentsummary':{templateUrl:'views/paymentsummary/viewpaymentsummary.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.payments,$stateParams.id);
+                            $scope.payment=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+
+                    }
+                })
+                .state('home.paymentsummary.update_paymentsummary_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_paymentsummary':{templateUrl:'views/paymentsummary/updatepaymentsummary.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.payments,$stateParams.id);
+                            $scope.payment=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+                .state('home.openinghours',{
+                    url:'/openinghours',
+                    views:{
+                        'body':{templateUrl:'views/openinghours/openinghours.html',
+                            controller:function($scope,$http,$stateParams){
+                                $http.get('json/openinghours.json').success(function(data){
+                                    $scope.openinghours=data;
+                                    console.log(data);
+                                })
+                            }
+                        }
+                    }})
+
+                .state('home.openinghours.create_openinghours_btn',{
+                    url:'/create',
+                    views:{
+                        'test_openinghours':{templateUrl:'views/openinghours/addopeninghours.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            }}
+
+                    }
+                })
+
+                .state('home.openinghours.update_openinghours_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_openinghours':{templateUrl:'views/openinghours/updateopeninghours.html',controller:function($scope,$stateParams){
+                            $model=findbyId($scope.openinghours,$stateParams.id);
+                            $scope.hour=$model;
+                            $('#myModal').modal({
+                                show:true,
+                                backdrop:false
+                            })
+
+                        }}
+                    }
+                })
+
+
+
+
+                .state('home.business_settings',{
+                    url:'/business_settings',
+                    views:{
+                        'body':{templateUrl:'views/business_settings.html', controller:function($scope,$http){
+                            $http.get('json/business_settings.json').success(function(data){
+                                $scope.settings=data;
+                                $model=$scope.settings[0];
+                                $scope.setting=$model;
+
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+
+                            })
+                        }}
+                    }
+                })
+                .state('home.group',{
+                    url:'/group',
+                    views:{
+                        'body':{
+                            templateUrl:'views/groups/group.html',
+                            controller:function($scope,$http){
+                                $http.get('json/group.json').success(function(data){
+                                    $scope.groups=data;
+                                    console.log(data);
+                                })
+                            }
+                        }
+                    }
+                })
+                .state('home.group.create_group_btn',{
+                    url:'/group/create',
+                    views:{
+                        'test':{
+                            templateUrl:'views/groups/create_group.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+                            }
+                        }
+                    }
+                })
+                .state('home.group.update_group_btn',{
+                    url:'/group/update/:id',
+                    views:{
+                        'test':{
+                            templateUrl:'views/groups/update_group.html',
+                            controller:function($scope,$stateParams){
+                                $model=findbyId($scope.groups,$stateParams.id);
+                                $scope.group=$model;
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+                            }
+                        }
+                    }
+                })
+
+
+                .state('home.printer',{
+                    url:'/printer',
+                    views:{
+                        'body':{
+                            templateUrl:'views/printers/Printers.html',
+                            controller:function($scope,$http){
+                                $http.get('json/printers.json').success(function(data){
+                                    $scope.printers=data;
+                                    console.log(data);
+                                })
+                            }
+                        }
+                    }
+                })
+                .state('home.printer.create_printer_btn',{
+                    url:'/create',
+                    views:{
+                        'test_printer':{
+                            templateUrl:'views/printers/addPrinter.html',
+                            controller:function($scope,$stateParams){
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+                            }
+                        }
+                    }
+                })
+
+                .state('home.printer.update_printer_btn',{
+                    url:'/update/:id',
+                    views:{
+                        'test_printer':{
+                            templateUrl:'views/printers/updatePrinter.html',
+                            controller:function($scope,$stateParams){
+                                $model=findbyId($scope.printers,$stateParams.id);
+                                $scope.printer=$model;
+                                $('#myModal').modal({
+                                    show:true,
+                                    backdrop:false
+                                })
+                            }
+                        }
+                    }
+                })
+    });
+
+    function findbyId(obj,id)
+    {
+        for(var i = 0; i < obj.length; i++)
+        {
+            if(obj[i].id == id)
+            {
+                return obj[i];
+            }
+        }
+    }
+
+    function saleCtrl($scope){
+
+        $scope.del=function(sale){
+            var r = confirm("Are you sure?");
+            if (r != true) {
+                return;
+            }
+            console.log(sale);
+            var i=$scope.sales.indexOf(sale);
+            console.log(i);
+            $scope.sales.splice(i,1);
+        }
+
+    }
+    function groupCtrl($scope){
+        $scope.del=function(group){
+            var r=confirm("Are you sure?");
+            if(r!=true){
+                return;
+            }
+            var i=$scope.groups.indexOf(group);
+            $scope.groups.splice(i,1);
+        }
+        $scope.add=function(group){
+            $scope.groups.push(group);
+        }
+    }
+    function itemCtrl($scope){
+        $scope.del=function(item){
+            var r=confirm("Are you sure?");
+            if(r!=true){
+                return;
+            }
+            var i=$scope.items.indexOf(item);
+            $scope.items.splice(i,1);
+        }
+        $scope.add=function(item){
+            $scope.items.push(item);
+        }
+    }
+    function businessCtrl($scope){
+        $scope.del=function(business){
+            var r=confirm("Are you sure?");
+            if(r!=true){
+                return;
+            }
+            var i=$scope.businesses.indexOf(business);
+            $scope.businesses.splice(i,1);
+        }
+        $scope.add=function(business){
+            $scope.businesses.push(business);
+        }
+    }
+    function openinghoursCtrl($scope){
+
+        $scope.del=function(hour){
+            var r = confirm("Are you sure?");
+            if (r != true) {
+                return;
+            }
+            console.log(hour);
+            var i=$scope.openinghours.indexOf(hour);
+            console.log(i);
+            $scope.openinghours.splice(i,1);
+        }
+        $scope.add=function(hour){
+            $scope.openinghours.push(hour);
+        }
+
+    }
+    function printerCtrl($scope){
+
+        $scope.del=function(printer){
+            var r = confirm("Are you sure?");
+            if (r != true) {
+                return;
+            }
+            console.log(printer);
+            var i=$scope.printers.indexOf(printer);
+            console.log(i);
+            $scope.printers.splice(i,1);
+        }
+        $scope.add=function(printer){
+            $scope.printers.push(printer);
+        }
+
+    }
+    function paymentCtrl($scope){
+
+        $scope.del=function(payment){
+            var r = confirm("Are you sure?");
+            if (r != true) {
+                return;
+            }
+            console.log(payment);
+            var i=$scope.payments.indexOf(payment);
+            console.log(i);
+            $scope.payments.splice(i,1);
+        }
+        $scope.add=function(payment){
+            $scope.payments.push(payment);
+        }
+
+    }
+
+    function couponCtrl($scope){
+
+    $scope.del=function(coupon){
+        var r = confirm("Are you sure?");
+        if (r != true) {
+            return;
+        }
+        console.log(coupon);
+        var i=$scope.coupons.indexOf(coupon);
+        console.log(i);
+        $scope.coupons.splice(i,1);
+
+    }
+
+    $scope.add=function(coupon){
+        $scope.coupons.push(coupon);
+    }
+
+    }
+
+    function orderCtrl($scope){
+
+        $scope.cancel=function(order){
+            var r = confirm("Are you sure?");
+            if (r != true) {
+                return;
+            }
+            console.log(order);
+            var i=$scope.orders.indexOf(order);
+            console.log(i);
+            $scope.orders.splice(i,1);
+
+        }
+
+        $scope.add=function(order){
+            $scope.orders.push(order);
+        }
+
+    }
+
+
+    function categoryCtrl($scope){
+
+        $scope.del=function(category){
+            var i=$scope.categories.indexOf(category);
+            $scope.categories.splice(i,1);
+            $('#myModal').modal({
+                show:false
+            })
+        }
+        $scope.add=function(category){
+            console.log(category);
+            $scope.categories.push(category);
+            $location.path("/view:"+category.id);
+        }
+    }
+
+    function deliveryChargeCtrl($scope){
+
+        $scope.del=function(charges){
+            var i=$scope.deliveryCharges.indexOf(charges);
+            $scope.deliveryCharges.splice(i,1);
+            $('#myModal').modal({
+                show:false
+            })
+        }
+        $scope.add=function(charges){
+            console.log(charges);
+            $scope.deliveryCharges.push(charges);
+            $location.path("/view:"+charges.id);
+        }
+    }
+
+
+</script>
+
+
+<div ui-view="head">
+</div>
+
+<div ui-view="main"></div>
+
+
+

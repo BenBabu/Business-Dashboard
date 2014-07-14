@@ -1,0 +1,66 @@
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="" ui-sref="home.sale">Business Dashboard</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="">benkolenchery@gmail.com</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">Settings<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ui-sref="home.group">Group</a></li>
+                        <li><a ui-sref="home.category">Categories</a></li>
+                        <li><a ui-sref=".business_settings">Business Settings</a></li>
+                        <li><a ui-sref=".delivery_rules">Delivery Charge Rules</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-2 sidebar"><br><br><br><br>
+    <ul class="nav nav-sidebar" style="font-size: 14px">
+        <li class="active"><a ui-sref=".sale" >Sales</a></li>
+        <li><a ui-sref=".order">Orders</a></li>
+        <li><a ui-sref=".cancelled_orders">Cancelled orders</a></li>
+        <li><a ui-sref=".coupon">Coupons</a></li>
+        <li><a ui-sref=".business">Business/Shop</a></li>
+
+        <li><a ui-sref=".item">Items for Sale</a></li>
+        <li><a ui-sref=".openinghours">Opening Hours</a></li>
+        <li><a ui-sref=".printer">Printers</a></li>
+        <li><a ui-sref=".paymentsummary">Payment Summary to Kollox</a></li>
+        <li><a ui-sref=".code">Code for Website</a></li>
+
+        <li><a ui-sref=".api_paypal">API keys & Paypal</a></li>
+
+    </ul>
+</div>
+
+
+
+
+
+<div ui-view="body" class="col-md-8"></div>
+<div class="col-md-2 sidebar">
+    <div class="well" style="background:aliceblue">
+        <h4>Awaiting Payments To Kollox</h4><br>
+       <div><span style="font-size: 14px;color: red">Money Owed :</span><span>$250</span></div><br>
+        <div><span style="font-size: 14px">Time left :</span><span style="font-size:18px;color: green ">18.00hrs</span></div><br>
+        <div><img src="/kollox/image/paypal.jpg"style="width: 200px;height: 100px"></div>
+
+    </div>
+</div>
+<div ui-view="temp" class="col-md-8"></div>
+

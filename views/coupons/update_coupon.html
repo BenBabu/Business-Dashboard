@@ -1,0 +1,45 @@
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ui-sref="home.coupon" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">Update {{coupon.title}}</h2>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <table class="table table-striped">
+                        <tr><td><label>Coupon Name</label><input type="text" class="form-control" ng-model="coupon.title" value="coupon.title">
+                            <td><label>Business Id</label><input type="text" class="form-control" ng-model="coupon.business_id" value="coupon.business_id"></td></tr>
+                        <tr><td><label>Business Name</label><input type="text" class="form-control" ng-model="coupon.business_name" value="coupon.business_name">
+                            <td><label>Coupon Code</label><input type="text" class="form-control" ng-model="coupon.code" value="coupon.code"></td></tr>
+                        <tr><td><label>Start Date</label><input type="text"  class="form-control datepicker" ng-model="coupon.start_date" value="coupon.start_date">
+                            <td><label>End Date</label><input type="text" class="form-control datepicker" ng-model="coupon.end_date" value="coupon.end_date"></td></tr>
+                        <tr><td><label>Sales Count</label><input type="text" class="form-control" ng-model="coupon.sales_count" value="coupon.sales_count">
+                            <td><label>Redeem Count</label><input type="text" class="form-control" ng-model="coupon.redeem_count" value="coupon.redeem_count"></td></tr>
+                        <tr><td><label>Discount Amount</label><input type="text" class="form-control" ng-model="coupon.discount_amount" value="coupon.discount_amount">
+                            <td><label>Discount Percent</label><input type="text" class="form-control" ng-model="coupon.discount_percent" value="coupon.discount_percent"></td></tr>
+                        <tr><td><label>Is percent</label><input type="checkbox" ng-model="coupon.is_percent" value="true">
+                            <td><label>Expires at</label><input type="text" class="form-control datepicker" ng-model="coupon.expire_at" value="coupon.expire_at"></td></tr>
+                        <tr><td><label>Created at</label><input type="text" class="form-control datepicker" ng-model="coupon.created_at" value="coupon.created_at">
+                            <td><label>Updated at</label><input type="text" class="form-control datepicker" ng-model="coupon.updated_at" value="coupon.updated_at"></td></tr>
+                        <tr><td><label>Is Active</label><input type="checkbox"  ng-model="coupon.is_active" value="true">
+                            <td><label>Minimum number of items</label><input type="text" class="form-control" ng-model="coupon.min_item_quantity_required" value="coupon.min_item_quantity_required"></td></tr>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <a ui-sref="home.coupon.view_coupon({id:coupon.id})" type="button" class="btn btn-primary">Save changes</a>
+                <a ui-sref="home.coupon.delete_coupon" ng-click="del(coupon)" type="button" class="btn btn-danger glyphicon glyphicon-remove" data-dismiss="modal"></a>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $( ".datepicker" ).datepicker({dateFormat:'dd-mm-yy'});
+            });
+        </script>
+    </div>
+</div>

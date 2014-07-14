@@ -1,0 +1,110 @@
+[	
+
+	
+	{
+    "id":1,
+	"business_id":51,
+	"business_name":"business coupon1",
+	"title":"Coupon1",
+	"code":"coupon_code1",
+	"start_date":"2-3-14",
+	"end_date":"3-4-14",
+	"sales_count":43,
+	"redeem_count":23,
+	"discount_amount":250,
+	"discount_percent":10,
+	"is_percent":"true",
+	"expire_at":"12-3-14",
+	"is_active":"true",
+	"created_at":"21-2-14",
+	"updated_at":"1-3-14",
+	"min_item_quantity_required":5
+	
+	},
+	
+	
+
+	{
+	"id":2,
+	"business_id":52,
+	"business_name":"business coupon2",
+	"title":"Coupon2",
+	"code":"coupon_code2",
+	"start_date":"5-3-14",
+	"end_date":"8-4-14",
+	"sales_count":22,
+	"redeem_count":34,
+	"discount_amount":300,
+	"discount_percent":14,
+	"is_percent":"false",
+	"expire_at":"14-3-14",
+	"is_active":"true",
+	"created_at":"19-2-14",
+	"updated_at":"4-3-14",
+	"min_item_quantity_required":10
+	},
+					
+					
+	{
+	"id":3,
+	"business_id":53,
+	"business_name":"business coupon3",
+	"title":"Coupon3",
+	"code":"coupon_code3",
+	"start_date":"11-3-14",
+	"end_date":"15-4-14",
+	"sales_count":20,
+	"redeem_count":10,
+	"discount_amount":100,
+	"discount_percent":4,
+	"is_percent":"true",
+	"expire_at":"12-3-14",
+	"is_active":"false",
+	"created_at":"18-2-14",
+	"updated_at":"6-3-14",
+	"min_item_quantity_required":2
+	},
+					
+					
+	{
+	"id":4,
+	"business_id":54,
+	"business_name":"business coupon4",
+	"title":"Coupon4",
+	"code":"coupon_code4",
+	"start_date":"3-3-14",
+	"end_date":"22-4-14",
+	"sales_count":50,
+	"redeem_count":15,
+	"discount_amount":400,
+	"discount_percent":10,
+	"is_percent":"true",
+	"expire_at":"12-3-14",
+	"is_active":"true",
+	"created_at":"21-2-14",
+	"updated_at":"1-3-14",
+	"min_item_quantity_required":6
+	},
+	
+	{
+	"id":5,
+	"business_id":54,
+	"business_name":"business coupon5",
+	"title":"Coupon5",
+	"code":"coupon_code4",
+	"start_date":"3-3-14",
+	"end_date":"22-4-14",
+	"sales_count":50,
+	"redeem_count":15,
+	"discount_amount":400,
+	"discount_percent":10,
+	"is_percent":"true",
+	"expire_at":"12-3-14",
+	"is_active":"true",
+	"created_at":"21-2-14",
+	"updated_at":"1-3-14",
+	"min_item_quantity_required":6
+	}
+					
+					
+]

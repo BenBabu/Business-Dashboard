@@ -1,0 +1,109 @@
+[	
+
+	
+    {
+        "id":1,
+        "user_id":51,
+        "town_id":51,
+        "business_type_id":32,
+        "title":"business1",
+        "user_name":"user1",
+        "town_name":"town1",
+        "logo":"logo1",
+        "money_owned":23423,
+        "money_paid":4332,
+        "cancelled_order_count":23,
+        "success_order_count":250,
+        "active":true,
+        "delivery_waiting_time":"2.00hrs",
+        "takeaway_waiting_time":"5hrs",
+        "commission_fees":234,
+        "commission_due_date":"12-3-14",
+        "pickup":true,
+        "delivery":true,
+        "disable_delivery_charges":false,
+        "minimum_order_amount":5
+
+	
+    },
+	
+	
+
+    {
+        "id":2,
+        "user_id":52,
+        "town_id":62,
+        "business_type_id":33,
+        "title":"business2",
+        "user_name":"user2",
+        "town_name":"town2",
+        "logo":"logo2",
+        "money_owned":53423,
+        "money_paid":4132,
+        "cancelled_order_count":21,
+        "success_order_count":413,
+        "active":false,
+        "delivery_waiting_time":"3.00hrs",
+        "takeaway_waiting_time":"4.00hrs",
+        "commission_fees":3123,
+        "commission_due_date":"3-4-14",
+        "pickup":false,
+        "delivery":true,
+        "disable_delivery_charges":true,
+        "minimum_order_amount":2
+    },
+					
+					
+    {
+        "id":3,
+        "user_id":51,
+        "town_id":51,
+        "business_type_id":32,
+        "title":"business3",
+        "user_name":"user3",
+        "town_name":"town3",
+        "logo":"logo3",
+        "money_owned":23423,
+        "money_paid":4332,
+        "cancelled_order_count":23,
+        "success_order_count":250,
+        "active":true,
+        "delivery_waiting_time":"2.00hrs",
+        "takeaway_waiting_time":"5hrs",
+        "commission_fees":234,
+        "commission_due_date":"12-3-14",
+        "pickup":true,
+        "delivery":true,
+        "disable_delivery_charges":false,
+        "minimum_order_amount":5
+    },
+					
+					
+    {
+        "id":4,
+        "user_id":54,
+        "town_id":54,
+        "business_type_id":35,
+        "title":"business4",
+        "user_name":"user4",
+        "town_name":"town4",
+        "logo":"logo4",
+        "money_owned":23423,
+        "money_paid":4332,
+        "cancelled_order_count":23,
+        "success_order_count":250,
+        "active":true,
+        "delivery_waiting_time":"2.00hrs",
+        "takeaway_waiting_time":"5hrs",
+        "commission_fees":234,
+        "commission_due_date":"12-3-14",
+        "pickup":true,
+        "delivery":true,
+        "disable_delivery_charges":false,
+        "minimum_order_amount":5
+    }
+	
+
+					
+
+]

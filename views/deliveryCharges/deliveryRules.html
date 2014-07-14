@@ -1,0 +1,37 @@
+<div ng-controller="deliveryChargeCtrl">
+
+
+<br><h2>Delivery Charge Rules</h2><br><p><a ui-sref=".create_rule_btn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Rule</a><div class="col-md-2 col-md-offset-7"><input class="form-control" type="text" ng-model="query" placeholder="search for rules"></div> <br></p><br>
+
+
+
+<table class="table" style="width: 800px">
+    <tr>
+        <th><a ng-click="sortField='id'" href="">#</a></th>
+        <th><a ng-click="sortField='business_id'" href="">Business Id</a></th>
+        <th><a ng-click="sortField='business_name'" href="">Business Name</a></th>
+        <th><a ng-click="sortField='from' " href="">From</a></th>
+        <th><a ng-click="sortField='to' " href="">To</a></th>
+        <th><a ng-click="sortField='amount' " href="">Amount</a></th>
+
+    </tr>
+    <tr ng-repeat="charges in deliveryCharges | filter:query | orderBy:sortField">
+        <td>{{charges.id}}</td>
+        <td>{{charges.business_id}}</td>
+        <td>{{charges.business_name}}</td>
+        <td>{{charges.from}}<small>$</small></td>
+        <td>{{charges.to}}<small>$</small></td>
+        <td>{{charges.amount}}<small>$</small></td>
+        <td>
+            <a ui-sref=".view_rule({id:charges.id})" class="btn btn-default glyphicon glyphicon-eye-open"></a>
+            <a ui-sref=".update_rule_btn({id:charges.id})" class="btn btn-warning glyphicon glyphicon-pencil"></a>
+            <a ui-sref=".remove_rule" ng-click="del(charges)"  class="btn btn-danger glyphicon glyphicon-remove"></a>
+
+        </td>
+
+    </tr>
+</table>
+
+        <div ui-view="test_rule"></div>
+
+</div>
